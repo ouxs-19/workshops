@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Rows</title>
+</head>
+<body>
+    <h2>Generated Rows:</h2>
+    <table>
+        <tr>
+            <th>Row Number</th>
+        </tr>
+        {% for i in range(1,n+1) %}
+        <tr>
+            {% if i % 2 == 0 %}
+            <td>MOD 2 ==0: {{ i }}</td>
+            {% else %}
+            <td>MOD 2 == 1: {{ i }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

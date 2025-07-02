@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Westeros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="fadeIn">Discover Westeros</h1>
+        </div>
+        <div class="content">
+            <div class="info fadeIn">
+                <p>House Name: <span id="houseName"></span></p>
+                <p>Quote: <span id="quote"></span></p>
+                <img id="houseImage" src="" style="display: none;">
+            </div>
+            <button id="discoverButton" class="fadeIn">Show me a house</button>
+        </div>
+    </div>>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const discoverButton = document.getElementById('discoverButton');
+            const houseName = document.getElementById('houseName');
+            const quote_elem = document.getElementById('quote');
+            const familyImage = document.getElementById('houseImage');
+
+            discoverButton.addEventListener('click', async () => {
+                const query = `{
+                  randomHouse {
+                    name
+                    image 
+                    quote {
+                      quote
+                    }
+                  }
+                }`;
+
+                fetch('/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data && data.data && data.data.randomHouse) {
+                        const { name, image, quote } = data.data.randomHouse;
+                        houseName.textContent = name;
+                        quote_elem.textContent = quote ? quote.quote : '';
+                        houseImage.src = image;
+                        houseImage.style.display = "block"
+
+                    } else {
+                        houseName.textContent = 'Error fetching data';
+                        quote.textContent = '';
+                        houseImage.src = ''; 
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+            const contentElements = document.querySelectorAll('.fadeIn');
+            contentElements.forEach((element) => {
+                element.style.display = 'block';
+            });
+
+        });
+    </script>
+</body>
+</html>

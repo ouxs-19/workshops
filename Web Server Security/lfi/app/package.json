@@ -1,0 +1,18 @@
+{
+  "name": "discover",
+  "version": "1.0.0",
+  "description": "just a gql challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ouxs",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.12.1",
+    "apollo-server-core": "^3.12.1",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1"
+  }
+}

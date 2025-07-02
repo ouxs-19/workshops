@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'GOT';
+    src: url('Game of Thrones.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'GOT', sans-serif;
+    font-size: 32px;
+}
+
+body {
+    font-family: 'GOT', sans-serif;
+    background-color: #1c1b1b;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+button {
+    background-color: #f5b642;
+    color: #1c1b1b;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 20px 0; 
+}
+
+button:hover {
+    background-color: #ffd700;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+span {
+    color: #ffd700;
+}
+
+img {
+    max-width: 300px;
+    margin: 10px 0;
+}

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/css/signin.css') }}">
+    <title>Notes app</title>
+</head>
+<body>
+<div class="container">
+    <form action="changeEmail" method="post" name="changeEmail_Form" class="form-signin">
+        <h2 class="form-signin-heading">Change your mail</h2>
+        <label for="inputUsername" class="sr-only">Email</label>
+        <input name="newEmail" type="email" id="inputEmail" class="form-control" placeholder="newEmail" required autofocus>
+        <button name="Submit" value="Login" class="btn btn-lg btn-primary btn-block" type="submit">Change </button>
+                {% if error %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Warning!</strong> {{ content }}
+                </div>
+                {% endif %}
+                {% if sucess %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    email successfully changed
+                </div>
+                {% endif %}
+
+    </form>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

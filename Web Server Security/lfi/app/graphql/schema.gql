@@ -1,0 +1,16 @@
+
+type Quote {
+  quote: String
+}
+
+type House {
+  name: String
+  image: String
+  quote: Quote
+}
+
+type Query {
+  houses: [House] 
+  randomHouse: House
+}
+
